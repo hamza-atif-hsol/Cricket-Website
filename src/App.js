@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router,Routes,Route } from "react-router-dom"
+import Home from './Components/Home';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
+import Teams from "./Components/Teams";
+import Players from "./Components/Players";
+import Umpires from "./Components/Umpires";
+import Matches from "./Components/Matches";
+import Venue from "./Components/Venue";
+import Shop from './Components/Shop';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Router>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/players" element={<Players />} />
+        <Route path="/umpires" element={<Umpires />} />
+        <Route path="/matches" element={<Matches />} />
+        <Route path="/venue" element={<Venue />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </Router>
+      
     </div>
   );
 }
